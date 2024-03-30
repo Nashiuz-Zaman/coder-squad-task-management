@@ -1,7 +1,7 @@
-export const homeTopBannerTextContent = {
+export const homeBannerContent = {
    heading: (
       <>
-         Task Expert: Streamlining Your{' '}
+         Task Manager: Streamlining Your{' '}
          <span className='text-primary'>Productivity</span>
       </>
    ),

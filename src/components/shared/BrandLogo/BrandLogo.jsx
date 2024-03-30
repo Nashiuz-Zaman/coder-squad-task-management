@@ -6,8 +6,8 @@ import Link from 'next/link';
 import Image from 'next/image';
 
 // data
-import logoPrimary from '@/assets/websiteLogo/logo-primary.svg';
-import logoWhite from '@/assets/websiteLogo/logo-white.svg';
+import logoPrimary from '@/assets/websiteLogo/logo-primary.webp';
+import logoWhite from '@/assets/websiteLogo/logo-white.webp';
 
 const BrandLogo = ({
    onClickFunction = null,

@@ -1,3 +1,61 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+html {
+   scroll-behavior: smooth;
+   scroll-padding-top: 2.5rem;
+}
+
+body {
+   @apply text-textPrimary !leading-[1];
+}
+
+::selection {
+   @apply bg-primaryLightest;
+}
+
+button::selection {
+   color: initial;
+   @apply bg-transparent;
+}
+
+a:link::selection,
+a:visited::selection {
+   color: auto;
+   @apply bg-transparent;
+}
+
+.no-backface-visibility {
+   backface-visibility: hidden;
+   -moz-backface-visibility: hidden;
+   -webkit-backface-visibility: hidden;
+}
+
+.primaryClasses {
+   @apply bg-primary border-primary active:bg-primaryDark active:border-primaryDark lg:hover:bg-primaryDark lg:hover:border-primaryDark text-white;
+}
+
+.primaryOutlinedClasses {
+   @apply border-primary active:border-primaryDark lg:hover:border-primaryDark text-primary active:text-primaryDark lg:hover:text-primaryDark;
+}
+
+.darkOutlinedClasses {
+   @apply border-neutral-900 active:border-black lg:hover:border-black text-neutral-900 active:text-black lg:hover:text-black;
+}
+
+.blackClasses {
+   @apply bg-blackLight border-blackLight text-white;
+}
+
+.whiteNeutralClasses {
+   @apply bg-white border-neutral-300 shadow-small text-blackLight;
+}
+
+.dangerClasses {
+   @apply bg-red-600 border-red-600 text-white hover:bg-red-500 hover:border-red-500;
+}
+
+.primaryGradientClasses {
+   @apply bg-gradient-to-r from-primaryLight to-primary text-white hover:bg-gradient-to-r hover:from-primary hover:to-primaryDark;
+}

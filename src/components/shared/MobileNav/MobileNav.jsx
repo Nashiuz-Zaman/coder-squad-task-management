@@ -99,16 +99,7 @@ const MobileNav = ({ modifyClasses = '' }) => {
             <Link className={linkClasses} href={'/#faq'}>
               FAQ
             </Link>
-          </li>
-
-          <li onClick={closeMobileNav}>
-            <Link
-              className={linkClasses}
-              href={'https://nashiuz-zaman.web.app/'}
-            >
-              Meet The Developer
-            </Link>
-          </li>
+          </li>        
         </ul>
 
         {profileData && (

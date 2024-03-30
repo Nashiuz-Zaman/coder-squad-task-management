@@ -62,7 +62,7 @@ export const faqContent = {
    set1: [
       {
          id: 0,
-         question: 'How do I organize tasks in Task Expert?',
+         question: 'How do I organize tasks in Task Manager?',
          answer:
             "Task organization is easy! Simply categorize tasks into 'Todo,' 'Completed,' or 'Ongoing' states for a streamlined view of your progress.",
       },
@@ -70,14 +70,14 @@ export const faqContent = {
          id: 1,
          question: 'Can I pin tasks for quick access?',
          answer:
-            "Absolutely! Task Expert allows you to pin important tasks for quick access. Simply mark tasks as 'pinned' to keep them at the forefront of your task list.",
+            "Absolutely! Task Manager allows you to pin important tasks for quick access. Simply mark tasks as 'pinned' to keep them at the forefront of your task list.",
       },
       {
          id: 2,
          question:
-            'Is Task Expert suitable for both professionals and students?',
+            'Is Task Manager suitable for both professionals and students?',
          answer:
-            "Yes, Task Expert is designed for everyone! Whether you're a professional managing work tasks or a student organizing assignments, Task Expert adapts to your needs.",
+            "Yes, Task Manager is designed for everyone! Whether you're a professional managing work tasks or a student organizing assignments, Task Manager adapts to your needs.",
       },
    ],
    set2: [
@@ -89,15 +89,15 @@ export const faqContent = {
       },
       {
          id: 4,
-         question: 'Can I use Task Expert on different devices?',
+         question: 'Can I use Task Manager on different devices?',
          answer:
-            'Certainly! Task Expert is accessible across various devices. Seamlessly transition between your desktop, tablet, and mobile to manage tasks from anywhere.',
+            'Certainly! Task Manager is accessible across various devices. Seamlessly transition between your desktop, tablet, and mobile to manage tasks from anywhere.',
       },
       {
          id: 5,
-         question: 'What makes Task Expert stand out in task management apps?',
+         question: 'What makes Task Manager stand out in task management apps?',
          answer:
-            "Task Expert stands out with its user-friendly interface, efficient task operations, and versatile features like pinning tasks, detailed views, and countdowns to deadlines. It's the perfect blend of simplicity and productivity and also it's completely free!",
+            "Task Manager stands out with its user-friendly interface, efficient task operations, and versatile features like pinning tasks, detailed views, and countdowns to deadlines. It's the perfect blend of simplicity and productivity and also it's completely free!",
       },
    ],
 };

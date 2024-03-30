@@ -6,6 +6,7 @@ import PropTypes from 'prop-types';
 // components
 import BrandLogo from '@/components/shared/BrandLogo/BrandLogo';
 import InnerContainer from '@/components/containers/InnerContainer/InnerContainer';
+import MobileNav from '@/components/shared/MobileNav/MobileNav';
 
 const Header = ({ modifyClasses = '' }) => {
   return (
@@ -17,6 +18,12 @@ const Header = ({ modifyClasses = '' }) => {
 
           {/* website logo */}
           <BrandLogo modifyClasses='justify-self-center 2md:justify-self-start' />
+
+          {/* auth related options login/logout etc */}
+          <div className='flex items-center gap-3 justify-self-end'>
+            {/* mobile nav button and mobile nav menu */}
+            <MobileNav />
+          </div>
         </div>
       </InnerContainer>
     </header>

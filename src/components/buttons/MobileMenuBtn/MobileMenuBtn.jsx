@@ -12,11 +12,7 @@ const MobileMenuBtn = ({
   return (
     <button
       aria-label='Open Mobile Navigation'
-      className={`inline-block border group rounded-md md:rounded-lg xl:rounded-xl transition-all duration-default ${
-        theme === 'light'
-          ? 'border-textPrimary active:border-primary lg:hover:border-primary'
-          : 'border-white'
-      }  ${modifyClasses}`}
+      className={`inline-block group rounded-md md:rounded-lg xl:rounded-xl transition-all duration-default ${modifyClasses}`}
       onClick={openNavFunction}
     >
       <Icon

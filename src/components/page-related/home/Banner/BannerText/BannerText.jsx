@@ -4,16 +4,17 @@ import PropTypes from 'prop-types';
 // component
 import BannerTextBtns from './BannerTextBtns/BannerTextBtns';
 
-function BannerText({ heading, subheading, modifyClasses = '' }) {
+function BannerText({  modifyClasses = '' }) {
    return (
       <div className={`h-max text-center lg:text-left ${modifyClasses}`}>
          {/* text part */}
          <h1 className='font-bold text-3xl sm:text-4xl md:text-[2.6rem] xl:text-5xl 3xl:text-6xl mb-4 2md:mb-5 !leading-snug'>
-            {heading}
+            Task Manager: Streamlining Your{' '}
+            <span className='text-primary'>Productivity</span>
          </h1>
 
          <p className='text-lg xl:text-xl 3xl:text-[1.6rem] xs:w-[80%] md:w-[60%] lg:w-full mx-auto mb-5 2md:mb-6 font-medium !leading-snug text-neutral-600'>
-            {subheading}
+            Effortless Task Management for a Seamless Workflow
          </p>
 
          {/* buttons */}
@@ -23,9 +24,7 @@ function BannerText({ heading, subheading, modifyClasses = '' }) {
 }
 
 BannerText.propTypes = {
-   heading: PropTypes.node,
-   subheading: PropTypes.node,
-   modifyClasses: PropTypes.string,
+     modifyClasses: PropTypes.string,
 };
 
 export default BannerText;

@@ -7,7 +7,7 @@ import { homeBannerContent } from '@/uiData/homeUiContent';
 
 const Banner = () => {
    // extract heading and subheading
-   const { heading, subheading, backgroundImg } = homeBannerContent;
+   const { backgroundImg } = homeBannerContent;
 
    return (
       <div className='w-full h-full md:relative md:aspect-video xl:aspect-[16/8]'>
@@ -20,11 +20,7 @@ const Banner = () => {
 
          {/* banner text part */}
          <InnerContainer modifyClasses='md:absolute md:top-1/2 md:left-1/2 md:-translate-x-1/2 md:-translate-y-1/2 md:!p-0 md:w-[38rem] lg:left-0 lg:translate-x-12 lg:w-[31rem] xl:w-[35rem] 2xl:w-[36rem] 3xl:w-[45.5rem]'>
-            <BannerText
-               heading={heading}
-               subheading={subheading}
-               modifyClasses='md:px-4 md:py-5 2xl:p-6 3xl:p-8 bg-white md:bg-[rgba(255,255,255,0.9)] md:rounded-xl 2xl:rounded-2xl'
-            />
+            <BannerText modifyClasses='md:px-4 md:py-5 2xl:p-6 3xl:p-8 bg-white md:bg-[rgba(255,255,255,0.9)] md:rounded-xl 2xl:rounded-2xl' />
          </InnerContainer>
       </div>
    );

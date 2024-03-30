@@ -8,7 +8,7 @@ html {
 }
 
 body {
-   line-height: 1 !important;
+   @apply text-textPrimary !leading-[1];
 }
 
 ::selection {
@@ -38,6 +38,10 @@ a:visited::selection {
 
 .primaryOutlinedClasses {
    @apply border-primary active:border-primaryDark lg:hover:border-primaryDark text-primary active:text-primaryDark lg:hover:text-primaryDark;
+}
+
+.darkOutlinedClasses {
+   @apply border-neutral-900 active:border-black lg:hover:border-black text-neutral-900 active:text-black lg:hover:text-black;
 }
 
 .blackClasses {

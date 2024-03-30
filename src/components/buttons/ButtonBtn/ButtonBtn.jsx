@@ -16,7 +16,7 @@ const ButtonBtn = ({
    
    const colorThemeClass = `${colorTheme}Classes`;
 
-   const allClasses = `block min-w-[6rem] w-max capitalize transition-all duration-default rounded-defaultLg text-center text-sm sm:text-base px-4 py-2 active:scale-[0.98] disabled:opacity-60 disabled:scale-100 disabled:cursor-not-allowed font-medium border ${colorThemeClass} ${modifyClasses}`;
+   const allClasses = `block min-w-[6rem] w-max capitalize transition-all duration-default rounded-defaultLg text-center text-sm sm:text-base px-4 py-2 xl:py-3 active:scale-[0.98] disabled:opacity-60 disabled:scale-100 disabled:cursor-not-allowed font-medium border ${colorThemeClass} ${modifyClasses}`;
 
    return (
       <button

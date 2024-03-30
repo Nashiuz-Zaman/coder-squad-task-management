@@ -20,7 +20,7 @@ const BannerTextBtns = ({ modifyClasses = '' }) => {
          <LinkBtn
             text="Sign Up - It's Free!"
             url='/signup'
-            colorTheme='primaryOutlined'
+            colorTheme='darkOutlined'
             modifyClasses='!duration-[300ms]'
          />
       </div>

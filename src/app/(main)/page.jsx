@@ -2,6 +2,7 @@
 import InnerContainer from '@/components/containers/InnerContainer/InnerContainer';
 import About from '@/components/page-related/home/About/About';
 import Banner from '@/components/page-related/home/Banner/Banner';
+import Features from '@/components/page-related/home/Features/Features';
 
 const Home = () => {
    return (
@@ -13,6 +14,12 @@ const Home = () => {
          <section id='learn-more' className='mb-sectionGapMd md:mb-sectionGapLg'>
             <InnerContainer>
                <About />
+            </InnerContainer>
+         </section>
+
+         <section id='features' className='mb-sectionGapMd md:mb-sectionGapLg'>
+            <InnerContainer>
+               <Features />
             </InnerContainer>
          </section>
       </>

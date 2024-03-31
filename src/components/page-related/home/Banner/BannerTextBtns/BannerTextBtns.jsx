@@ -4,7 +4,7 @@
 import PropTypes from 'prop-types';
 
 // components
-import LinkBtn from '@/components/buttons/LinkBtn/LinkBtn';
+import { LinkBtn } from '@/components/buttons';
 
 const BannerTextBtns = ({ modifyClasses = '' }) => {
    return (

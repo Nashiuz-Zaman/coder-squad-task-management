@@ -2,9 +2,9 @@
 import PropTypes from 'prop-types';
 
 // component
-import BannerTextBtns from './BannerTextBtns/BannerTextBtns';
+import BannerTextBtns from '@/components/page-related/home/Banner/BannerTextBtns/BannerTextBtns';
 
-function BannerText({  modifyClasses = '' }) {
+function BannerText({ modifyClasses = '' }) {
    return (
       <div className={`h-max text-center lg:text-left ${modifyClasses}`}>
          {/* text part */}
@@ -24,7 +24,7 @@ function BannerText({  modifyClasses = '' }) {
 }
 
 BannerText.propTypes = {
-     modifyClasses: PropTypes.string,
+   modifyClasses: PropTypes.string,
 };
 
 export default BannerText;

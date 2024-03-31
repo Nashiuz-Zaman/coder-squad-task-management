@@ -1,6 +1,8 @@
+// component
+import Feature from './Feature/Feature';
+
 // data
 import { featuresContent } from '@/uiData/homeUiContent';
-import Feature from './Feature/Feature';
 
 const Features = () => {
    const { features } = featuresContent;

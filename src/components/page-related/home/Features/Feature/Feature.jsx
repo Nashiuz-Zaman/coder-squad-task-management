@@ -2,7 +2,7 @@
 import PropTypes from 'prop-types';
 
 // component
-import Text from '@/components/shared/Text/Text';
+import { Text } from '@/components/shared';
 import FeatureIcon from '../FeatureIcon/FeatureIcon';
 
 const Feature = ({ featureData, modifyClasses = '' }) => {

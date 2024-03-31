@@ -2,6 +2,7 @@
 import InnerContainer from '@/components/containers/InnerContainer/InnerContainer';
 import About from '@/components/page-related/home/About/About';
 import Banner from '@/components/page-related/home/Banner/Banner';
+import Faq from '@/components/page-related/home/Faq/Faq';
 import Features from '@/components/page-related/home/Features/Features';
 
 const Home = () => {
@@ -11,7 +12,10 @@ const Home = () => {
             <Banner />
          </section>
 
-         <section id='learn-more' className='mb-sectionGapMd md:mb-sectionGapLg'>
+         <section
+            id='learn-more'
+            className='mb-sectionGapMd md:mb-sectionGapLg'
+         >
             <InnerContainer>
                <About />
             </InnerContainer>
@@ -21,6 +25,10 @@ const Home = () => {
             <InnerContainer>
                <Features />
             </InnerContainer>
+         </section>
+
+         <section id='faq' className='mb-sectionGapMd md:mb-sectionGapLg'>
+            <Faq />
          </section>
       </>
    );

@@ -1,4 +1,4 @@
-'use client'
+'use client';
 
 // import components
 import Accordion from '@/components/shared/Accordion/Accordion';
@@ -14,6 +14,8 @@ import LoadingSpinner from '@/components/shared/LoadingSpinner/LoadingSpinner';
 import MobileNav from '@/components/shared/MobileNav/MobileNav';
 import SocialMedia from '@/components/shared/SocialMedia/SocialMedia';
 import Text from '@/components/shared/Text/Text';
+import InputField1 from '@/components/shared/InputField1/InputField1';
+import PasswordField from '@/components/shared/PasswordField/PasswordField';
 
 // export components
 export {
@@ -30,4 +32,6 @@ export {
    MobileNav,
    SocialMedia,
    Text,
+   InputField1,
+   PasswordField,
 };

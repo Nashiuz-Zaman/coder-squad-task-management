@@ -37,7 +37,7 @@ const HeaderAuthBtns = ({ modifyClasses = '' }) => {
             <>
                <Link href='/login' className={btnClasses}>Login</Link>
 
-               <Link href='/signup' className={btnClasses}>Register</Link>
+               <Link href='/register' className={btnClasses}>Register</Link>
             </>
          )}
 

@@ -1,5 +1,12 @@
+// components
+import { RegistrationForm } from '@/components/forms';
+
 const page = () => {
-  return <div>register</div>;
+   return (
+      <div className='flex items-center justify-center'>
+         <RegistrationForm />
+      </div>
+   );
 };
 
 export default page;

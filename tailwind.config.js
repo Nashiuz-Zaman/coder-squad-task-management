@@ -44,7 +44,7 @@ module.exports = {
             },
          },
          animation: {
-            fadeIn: 'fade-in 0.3s ease-out forwards',
+            fadeIn: 'fade-in 0.7s ease-out forwards',
             fadeInFromRight: 'fade-in-from-right 0.7s ease-out forwards',
             fadeInFromLeft: 'fade-in-from-left 0.7s ease-out forwards',
          },

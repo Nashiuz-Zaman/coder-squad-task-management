@@ -4,7 +4,7 @@
 import PropTypes from 'prop-types';
 
 // components
-import LinkBtn from '@/components/buttons/LinkBtn/LinkBtn';
+import { LinkBtn } from '@/components/buttons';
 
 const BannerTextBtns = ({ modifyClasses = '' }) => {
    return (
@@ -19,7 +19,7 @@ const BannerTextBtns = ({ modifyClasses = '' }) => {
 
          <LinkBtn
             text="Sign Up - It's Free!"
-            url='/signup'
+            url='/register'
             colorTheme='darkOutlined'
             modifyClasses='!duration-[300ms]'
          />

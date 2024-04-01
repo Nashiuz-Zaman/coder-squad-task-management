@@ -19,11 +19,11 @@ const Banner = () => {
          ></div>
 
          {/* banner text part */}
-         <InnerContainer modifyClasses='md:absolute md:top-1/2 md:left-1/2 md:-translate-x-1/2 md:-translate-y-1/2 md:!p-0 md:w-[38rem] lg:left-0 lg:translate-x-12 lg:w-[31rem] xl:w-[35rem] 2xl:w-[36rem] 3xl:w-[45.5rem]'>
-            <BannerText modifyClasses='md:px-4 md:py-5 2xl:p-6 3xl:p-8 bg-white md:bg-[rgba(255,255,255,0.8)] md:rounded-xl 2xl:rounded-2xl' />
+         <InnerContainer modifyClasses='md:absolute md:top-0 md:left-0 md:w-full md:h-full md:flex md:items-center md:justify-center lg:justify-start'>
+            <BannerText modifyClasses='md:px-4 md:py-5 2xl:p-6 3xl:p-8 md:w-[38rem] lg:w-[31rem] xl:w-[35rem] 2xl:w-[36rem] 3xl:w-[45.5rem]  md:rounded-xl 2xl:rounded-2xl lg:animate-fadeInFromLeft' />
          </InnerContainer>
       </div>
-   );
+   ); 
 };
 
 export default Banner;

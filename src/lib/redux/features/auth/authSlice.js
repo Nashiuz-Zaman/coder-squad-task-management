@@ -7,7 +7,7 @@ const initialState = {
    userShouldExist: false,
    userAlreadyRegistered: false,
    profileData: null,
-   userLoading: true,
+   userLoading: false,
    loginErrors: [],
    registrationErrors: [],
    passwordResetErrors: [],

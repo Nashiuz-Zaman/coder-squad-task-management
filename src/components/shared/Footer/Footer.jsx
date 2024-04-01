@@ -3,9 +3,7 @@ import PropTypes from 'prop-types';
 
 // components
 import InnerContainer from '@/components/containers/InnerContainer/InnerContainer';
-import BrandLogo from '@/components/shared/BrandLogo/BrandLogo';
-import LinkList from '@/components/shared/LinkList/LinkList';
-import SocialMedia from '../SocialMedia/SocialMedia';
+import { BrandLogo, SocialMedia, LinkList } from '@/components/shared';
 
 // data
 import { footerOptions, currentYear } from '../../../uiData/footerData';

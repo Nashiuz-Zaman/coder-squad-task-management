@@ -8,8 +8,7 @@ import PropTypes from 'prop-types';
 import { Icon } from '@iconify/react';
 
 // component
-import Text from '@/components/shared/Text/Text';
-import Accordion from '@/components/shared/Accordion/Accordion';
+import { Accordion, Text } from '@/components/shared';
 
 const QuestionAnswer = ({ data, modifyClasses = '' }) => {
    const [expanded, setExpanded] = useState(false);

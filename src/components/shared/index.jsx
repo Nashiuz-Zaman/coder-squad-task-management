@@ -16,6 +16,7 @@ import SocialMedia from '@/components/shared/SocialMedia/SocialMedia';
 import Text from '@/components/shared/Text/Text';
 import InputField1 from '@/components/shared/InputField1/InputField1';
 import PasswordField from '@/components/shared/PasswordField/PasswordField';
+import AuthComponent from './AuthComponent/AuthComponent';
 
 // export components
 export {
@@ -34,4 +35,5 @@ export {
    Text,
    InputField1,
    PasswordField,
+   AuthComponent,
 };

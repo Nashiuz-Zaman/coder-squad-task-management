@@ -9,7 +9,7 @@ import { ButtonBtn } from '@/components/buttons';
 import { PasswordField, InputField1 } from '@/components/shared';
 
 // hooks
-// import useLoginMethods from '@/hooks/useLoginMethods';
+import { useLogin, useResetForm } from '@/hooks';
 
 // redux
 import { useSelector } from 'react-redux';
@@ -18,8 +18,14 @@ import Link from 'next/link';
 
 const LoginForm = ({ modifyClasses = '' }) => {
    const { loginErrors, loginLoading } = useSelector(store => store.auth);
-   // const { handleLoginEmail } = useLoginMethods();
+   const { handleLoginEmail } = useLogin();
+   const { resetFormFieldsAndErrors } = useResetForm();
    const formEl = useRef();
+
+   // clear form fields and errors
+   useEffect(() => {
+      return () => resetFormFieldsAndErrors(formEl, setLoginErrors);
+   }, [resetFormFieldsAndErrors, formEl]);
 
    return (
       <div
@@ -30,7 +36,12 @@ const LoginForm = ({ modifyClasses = '' }) => {
             Login to your account
          </h2>
 
-         <form ref={formEl} noValidate onSubmit={null} className='block w-max'>
+         <form
+            ref={formEl}
+            noValidate
+            onSubmit={handleLoginEmail}
+            className='block w-max'
+         >
             <div className='space-y-3 md:space-y-5'>
                {/* email */}
                <InputField1 type='email' name='email' placeholder='Email' />

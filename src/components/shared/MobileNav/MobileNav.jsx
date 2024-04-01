@@ -9,13 +9,15 @@ import Link from 'next/link';
 
 // components
 import { CloseBtn, MobileMenuBtn, ButtonBtn } from '@/components/buttons';
-import {BrandLogo} from '@/components/shared';
+import { BrandLogo } from '@/components/shared';
 
 // hook
-import useMobileNavigation from '@/hooks/useMobileNavigation';
-import useEscapeClose from '@/hooks/useEscapeClose';
-import useClickOutside from '@/hooks/useClickOutside';
-import useStopScrolling from '@/hooks/useStopScrolling';
+import {
+   useMobileNavigation,
+   useEscapeClose,
+   useClickOutside,
+   useStopScrolling,
+} from '@/hooks';
 
 // redux
 import { useSelector } from 'react-redux';

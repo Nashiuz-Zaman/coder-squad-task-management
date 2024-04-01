@@ -8,14 +8,14 @@ import Link from 'next/link';
 import { Icon } from '@iconify/react';
 
 // hooks
-// import useLoginMethods from '@/hooks/useLoginMethods';
+import { useLogin } from '@/hooks';
 
 // redux
 import { useSelector } from 'react-redux';
 
 const HeaderAuthBtns = ({ modifyClasses = '' }) => {
    const { profileData, userLoading } = useSelector(store => store.auth);
-   // const { handleLogout } = useLoginMethods();
+   const { handleLogout } = useLogin();
 
    // common btn classes
    const btnClasses = 'hover:text-primary transition-all duration-default';
@@ -35,9 +35,13 @@ const HeaderAuthBtns = ({ modifyClasses = '' }) => {
          {/* if no user then login and registration btns are shown */}
          {!userLoading && !profileData && (
             <>
-               <Link href='/login' className={btnClasses}>Login</Link>
+               <Link href='/login' className={btnClasses}>
+                  Login
+               </Link>
 
-               <Link href='/register' className={btnClasses}>Register</Link>
+               <Link href='/register' className={btnClasses}>
+                  Register
+               </Link>
             </>
          )}
 
@@ -55,7 +59,7 @@ const HeaderAuthBtns = ({ modifyClasses = '' }) => {
                >
                   Visit Dashboard
                </Link>
-               <button onClick={null} className={btnClasses}>
+               <button onClick={handleLogout} className={btnClasses}>
                   Sign Out
                </button>
             </>

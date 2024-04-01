@@ -8,7 +8,7 @@ import { Carousel1, Carousel2, Text } from '@/components/shared';
 import { LinkBtn } from '@/components/buttons';
 
 // hooks
-import useMediaQueryMatcher from '@/hooks/useMediaQueryMatcher';
+import { useMediaQueryMatcher } from '@/hooks';
 
 // data
 import { aboutContent } from '@/uiData/homeUiContent';

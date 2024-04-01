@@ -7,8 +7,7 @@ import { ButtonBtn } from '@/components/buttons';
 import { InputField1, PasswordField } from '@/components/shared';
 
 // hooks
-// import useRegistrationForm from '@/hooks/useRegistrationForm';
-// import useResetForm from '@/hooks/useResetForm';
+import { useRegistration, useResetForm } from '@/hooks';
 
 // redux
 import { useSelector } from 'react-redux';
@@ -16,21 +15,17 @@ import { setRegistrationErrors } from '@/lib/redux/features/auth/authSlice';
 import Link from 'next/link';
 
 const RegistrationForm = ({ modifyClasses }) => {
-   // const { handleSignup } = useRegistrationForm();
+   const { handleSignup } = useRegistration();
+   const formEl = useRef(null);
    const { registrationErrors, registrationLoading } = useSelector(
       store => store.auth
    );
-
-   // const { resetFormFieldsAndErrors } = useResetForm();
-
-   const formEl = useRef();
+   const { resetFormFieldsAndErrors } = useResetForm();
 
    // clear form fields and errors when it disappears
-   // useEffect(() => {
-   //    if (!registrationFormOpen) {
-   //       resetFormFieldsAndErrors(formEl, setRegistrationErrors);
-   //    }
-   // }, [registrationFormOpen, resetFormFieldsAndErrors]);
+   useEffect(() => {
+      return () => resetFormFieldsAndErrors(formEl, setRegistrationErrors);
+   }, [resetFormFieldsAndErrors, formEl]);
 
    return (
       <div
@@ -42,7 +37,12 @@ const RegistrationForm = ({ modifyClasses }) => {
          </h2>
 
          {/* form */}
-         <form ref={formEl} noValidate onSubmit={null} className='w-max'>
+         <form
+            ref={formEl}
+            noValidate
+            onSubmit={handleSignup}
+            className='w-max'
+         >
             <div className='space-y-3 md:space-y-5'>
                {/* username field */}
                <InputField1 name='name' placeholder='Username' />

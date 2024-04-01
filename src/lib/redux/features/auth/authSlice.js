@@ -4,7 +4,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-   userShouldExist: false,
+  
    userAlreadyRegistered: false,
    profileData: null,
    userLoading: false,
@@ -20,9 +20,7 @@ const authSlice = createSlice({
    name: 'auth',
    initialState,
    reducers: {
-      setUserShouldExist: (state, { payload }) => {
-         state.userShouldExist = payload;
-      },
+     
       setUserAlreadyRegistered: (state, { payload }) => {
          state.userAlreadyRegistered = payload;
       },
@@ -56,7 +54,7 @@ const authSlice = createSlice({
 const { reducer, actions } = authSlice;
 export default reducer;
 export const {
-   setUserShouldExist,
+  
    setUserAlreadyRegistered,
    setProfileData,
    setUserLoading,

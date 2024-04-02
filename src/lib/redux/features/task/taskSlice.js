@@ -6,9 +6,11 @@ import { createSlice } from '@reduxjs/toolkit';
 const initialState = {
    totalTasks: [],
    statusSpecificTasks: null,
+   curCategory: 'todo',
+   curPage: 1,
+   pageCount: 1,
    taskToEdit: null,
    taskDetails: null,
-   pinnedTasks: [],
    isLoading: true,
    showTaskDetailsPanel: false,
 };
@@ -24,13 +26,9 @@ const taskSlice = createSlice({
          state.taskToEdit = payload;
       },
       setTaskDetails: (state, { payload }) => {
-         console.log(payload)
          state.taskDetails = state.totalTasks.find(
             task => task._id === payload
          );
-      },
-      setPinnedTasks: (state, { payload }) => {
-         state.pinnedTasks = payload;
       },
       setStatusSpecificTasks: (state, { payload }) => {
          state.statusSpecificTasks = payload;
@@ -41,6 +39,12 @@ const taskSlice = createSlice({
       setIsLoading: (state, { payload }) => {
          state.isLoading = payload;
       },
+      setCurCategory: (state, { payload }) => {
+         state.curCategory = payload;
+      },
+      setCurPage: (state, { payload }) => {
+         state.curPage = payload;
+      },
    },
 });
 
@@ -49,10 +53,11 @@ const { actions, reducer } = taskSlice;
 export default reducer;
 export const {
    setTotalTasks,
-   setPinnedTasks,
    setStatusSpecificTasks,
    setIsLoading,
    setTaskToEdit,
    setTaskDetails,
    setShowTaskDetailsPanel,
+   setCurCategory,
+   setCurPage,
 } = actions;

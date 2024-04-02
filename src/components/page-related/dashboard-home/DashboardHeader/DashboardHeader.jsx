@@ -4,8 +4,8 @@
 import PropTypes from 'prop-types';
 
 // components
-import DashboardMobileNav from '../DashboardMobileNav/DashboardMobileNav';
-import UserProfile from '@/components/shared/UserProfile/UserProfile';
+import { DashboardMobileNav } from '@/components/page-related/dashboard-home';
+import { UserProfile } from '@/components/shared';
 
 // hooks
 import { useLogin } from '@/hooks';

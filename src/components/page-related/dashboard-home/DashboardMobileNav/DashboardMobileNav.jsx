@@ -7,7 +7,7 @@ import { useEffect } from 'react';
 // components
 import { CloseBtn, MobileMenuBtn, ButtonBtn } from '@/components/buttons';
 import { BrandLogo } from '@/components/shared';
-import DashboardNavContent from '../DashboardNavContent/DashboardNavContent';
+import { DashboardNavContent } from '@/components/page-related/dashboard-home';
 
 // hook
 import {

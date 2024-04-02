@@ -10,13 +10,15 @@ import { Icon } from '@iconify/react';
 import { useDashboardMobileNav } from '@/hooks';
 
 // components
-import DashboardNavHeading from '../DashboardNavHeading/DashboardNavHeading';
-import DashboardNavLink from '../DashboardNavLink/DashboardNavLink';
+import {
+   DashboardNavHeading,
+   DashboardNavLink,
+} from '@/components/page-related/dashboard-home';
 
 // redux
 import { useSelector } from 'react-redux';
 
-const DashboardNavContent = ({ modifyClasses = '' }) => {  
+const DashboardNavContent = ({ modifyClasses = '' }) => {
    const { profileData } = useSelector(store => store.auth);
    const { closeDashboardMobileNav } = useDashboardMobileNav();
 

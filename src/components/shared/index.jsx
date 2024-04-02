@@ -19,6 +19,11 @@ import PasswordField from '@/components/shared/PasswordField/PasswordField';
 import AuthComponent from '@/components/shared/AuthComponent/AuthComponent';
 import UserProfile from '@/components/shared/UserProfile/UserProfile';
 import TaskFetchingComponent from '@/components/shared/TaskFetchingComponent/TaskFetchingComponent';
+import SelectField from '@/components/shared/SelectField/SelectField';
+import InputField2 from '@/components/shared/InputField2/InputField2';
+import TextareaField from '@/components/shared/TextareaField/TextareaField';
+import PriorityCard from '@/components/shared/PriorityCard/PriorityCard';
+import TimeRemainingCard from '@/components/shared/TimeRemainingCard/TimeRemainingCard';
 
 // export components
 export {
@@ -39,5 +44,10 @@ export {
    PasswordField,
    AuthComponent,
    UserProfile,
-   TaskFetchingComponent
+   TaskFetchingComponent,
+   SelectField,
+   InputField2,
+   TextareaField,
+   TimeRemainingCard,
+   PriorityCard,
 };

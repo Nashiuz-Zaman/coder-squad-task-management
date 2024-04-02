@@ -3,6 +3,7 @@ import { TaskCreateForm, TaskEditForm } from '@/components/forms';
 import {
    TaskUtilsHeader,
    TaskDetailsPanel,
+   AllTasks,
 } from '@/components/page-related/manage-tasks';
 
 let ManageTasks = () => {
@@ -16,7 +17,9 @@ let ManageTasks = () => {
             <TaskDetailsPanel />
          </section>
 
-         <section className='grow overflow-x-auto xl:!overflow-hidden px-4 md:px-8 xl:px-16'></section>
+         <section className='grow overflow-x-auto xl:!overflow-hidden px-4 md:px-8 xl:px-16'>
+            <AllTasks />
+         </section>
       </div>
    );
 };

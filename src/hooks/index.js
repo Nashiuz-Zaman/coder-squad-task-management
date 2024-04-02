@@ -13,6 +13,10 @@ import useMobileNavigation from './useMobileNavigation';
 import useResetForm from './useResetForm';
 import useDataAndToken from './useDataAndToken';
 import useAuth from './useAuth';
+import useDashboardMobileNav from './useDashboardMobileNav';
+import useTaskDatabaseMethods from './useTaskDatabaseMethods';
+import useFormVisiblity from './useFormVisiblity';
+import useRedux from './useRedux';
 
 // export hooks
 export {
@@ -27,5 +31,9 @@ export {
    useMobileNavigation,
    useResetForm,
    useDataAndToken,
-   useAuth
+   useAuth,
+   useDashboardMobileNav,
+   useTaskDatabaseMethods,
+   useFormVisiblity,
+   useRedux,
 };

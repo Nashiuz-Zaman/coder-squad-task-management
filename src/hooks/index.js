@@ -13,6 +13,7 @@ import useMobileNavigation from './useMobileNavigation';
 import useResetForm from './useResetForm';
 import useDataAndToken from './useDataAndToken';
 import useAuth from './useAuth';
+import useDashboardMobileNav from './useDashboardMobileNav';
 
 // export hooks
 export {
@@ -27,5 +28,6 @@ export {
    useMobileNavigation,
    useResetForm,
    useDataAndToken,
-   useAuth
+   useAuth,
+   useDashboardMobileNav
 };

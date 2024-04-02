@@ -16,7 +16,9 @@ import SocialMedia from '@/components/shared/SocialMedia/SocialMedia';
 import Text from '@/components/shared/Text/Text';
 import InputField1 from '@/components/shared/InputField1/InputField1';
 import PasswordField from '@/components/shared/PasswordField/PasswordField';
-import AuthComponent from './AuthComponent/AuthComponent';
+import AuthComponent from '@/components/shared/AuthComponent/AuthComponent';
+import UserProfile from '@/components/shared/UserProfile/UserProfile';
+import TaskFetchingComponent from '@/components/shared/TaskFetchingComponent/TaskFetchingComponent';
 
 // export components
 export {
@@ -36,4 +38,6 @@ export {
    InputField1,
    PasswordField,
    AuthComponent,
+   UserProfile,
+   TaskFetchingComponent
 };

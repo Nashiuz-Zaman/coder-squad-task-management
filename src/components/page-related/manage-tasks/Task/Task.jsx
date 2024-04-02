@@ -42,7 +42,7 @@ const Task = ({ taskData }) => {
 
    return (
       <div
-         className={`border border-neutral-200 shadow-sm rounded-lg p-3 pb-4 text-lg flex flex-col cursor-grab animate-fadeIn`}
+         className={`bg-white border border-neutral-200 shadow-sm rounded-lg p-3 pb-4 text-lg flex flex-col animate-fadeIn`}
       >
          {/* priority and dot button */}
          <div className='flex items-center justify-between mb-3 md:mb-4'>

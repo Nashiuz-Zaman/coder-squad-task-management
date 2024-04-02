@@ -7,45 +7,45 @@ import PropTypes from 'prop-types';
 import { Task } from '@/components/page-related/manage-tasks';
 
 // redux
-import { useSelector } from 'react-redux';
 import { Icon } from '@iconify/react';
+
+// data
+import { statusOptions } from '@/uiData/formsUiData';
 
 const StatusSpecificTasks = ({ tasksData }) => {
    const { status, tasks } = tasksData;
 
-   const { isLoading } = useSelector(store => store.task);
+   const statusText = statusOptions[status]?.text;
 
    return (
-      <div
-         className={`bg-white overflow-y-hidden h-full rounded-2xl px-3 py-4 drop-target animate-fadeIn border border-neutral-200`}
-         // ref collection
-      >
+      <div className={`min-h-[59vh] lg:min-h-[50vh] flex flex-col p-4 bg-neutral-100`}>
          {/* tasks container */}
-         <div className={``}>
-            {/* if tasks available */}
-            {!isLoading && tasks?.length > 0 && (
-               <ul className='space-y-3'>
-                  {tasks.map(task => {
-                     return (
-                        <li key={task._id}>
-                           <Task taskData={task} />
-                        </li>
-                     );
-                  })}
-               </ul>
-            )}
 
-            {/* if no task */}
-            {!isLoading && tasks?.length < 1 && (
-               <div className='flex flex-col gap-3 items-center py-4 px-5 font-medium mt-10 2xs:mt-20 md:mt-28 lg:mt-20 md:text-lg lg:text-xl text-center text-neutral-400 animate-fadeIn'>
+         {/* if tasks available */}
+         {tasks?.length > 0 && (
+            <ul className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3'>
+               {tasks.map(task => {
+                  return (
+                     <li key={task._id}>
+                        <Task taskData={task} />
+                     </li>
+                  );
+               })}
+            </ul>
+         )}
+
+         {/* if no task */}
+         {tasks?.length < 1 && (
+            <div className='grow flex items-center justify-center'>
+               <div className='flex flex-col gap-3 items-center py-4 px-5 font-medium md:text-lg lg:text-xl text-center text-neutral-400 animate-fadeIn'>
                   <Icon
                      className='block text-xl md:text-2xl lg:text-4xl'
                      icon='ph:clock-counter-clockwise-fill'
                   />
-                  <span>{`No ${status} Tasks`}</span>{' '}
+                  <span>{`No ${statusText} Tasks Found`}</span>{' '}
                </div>
-            )}
-         </div>
+            </div>
+         )}
       </div>
    );
 };

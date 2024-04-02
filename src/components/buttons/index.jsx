@@ -13,6 +13,7 @@ import MoveToOngoingBtn from '@/components/buttons/MoveToOngoingBtn/MoveToOngoin
 import EditBtn from '@/components/buttons/EditBtn/EditBtn';
 import ViewDetailsBtn from '@/components/buttons/ViewDetailsBtn/ViewDetailsBtn';
 import DotsMenuBtn from '@/components/buttons/DotsMenuBtn/DotsMenuBtn';
+import PaginationBtns from '@/components/buttons/PaginationBtns/PaginationBtns';
 
 // export components
 export {
@@ -28,4 +29,5 @@ export {
    EditBtn,
    ViewDetailsBtn,
    DotsMenuBtn,
+   PaginationBtns,
 };

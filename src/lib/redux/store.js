@@ -10,6 +10,7 @@ import mobileNavReducer from '@/lib/redux/features/mobileNav/mobileNavSlice';
 import authReducer from '@/lib/redux/features/auth/authSlice';
 import dashboardReducer from '@/lib/redux/features/dashboard/dashboardSlice';
 import taskReducer from '@/lib/redux/features/task/taskSlice';
+import formReducer from '@/lib/redux/features/form/formSlice';
 
 // store
 export const store = configureStore({
@@ -19,6 +20,7 @@ export const store = configureStore({
       mediaQuery: mediaQueryReducer,
       mobileNav: mobileNavReducer,
       dashboard: dashboardReducer,
-      task: taskReducer
+      task: taskReducer,
+      form: formReducer,
    },
 });

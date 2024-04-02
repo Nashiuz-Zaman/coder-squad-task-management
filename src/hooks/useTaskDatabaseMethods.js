@@ -5,13 +5,10 @@ import { useCallback } from 'react';
 
 // hooks
 import useAxios from './useAxios';
+import useRedux from './useRedux';
 
 // redux
-import useRedux from './useRedux';
-import {
-   setTotalTasks,
-   setPinnedTasks,
-} from '@/lib/redux/features/task/taskSlice';
+import { setTotalTasks } from '@/lib/redux/features/task/taskSlice';
 
 // utils
 import { showToast } from '@/utils/toastify';
@@ -31,6 +28,24 @@ const useTaskDatabaseMethods = () => {
 
       return sortedArr;
    }, []);
+
+   const getTasks = useCallback(
+      async (email, status, limit, skip) => {
+         try {
+            const res = await axiosSecure.get(
+               `/tasks?email=${email}&status=${status}&limit=${limit}&skip=${skip}`
+            );
+
+            if (res?.data?.status === 'success') {
+               dispatch(setTotalTasks(res.data.tasks));
+               return { count: res.data.count };
+            }
+         } catch (error) {
+            showToast('Something went wrong. Try again', 'error');
+         }
+      },
+      [axiosSecure, dispatch]
+   );
 
    const createTask = async newTaskData => {
       try {
@@ -109,76 +124,8 @@ const useTaskDatabaseMethods = () => {
       [dispatch, sortByLatest, axiosSecure]
    );
 
-   const pinTask = useCallback(
-      async (task, pinnedTasks) => {
-         try {
-            const newPinnedTask = {
-               title: task.title,
-               taskId: task._id,
-               email: task.email,
-               lastUpdated: new Date().toISOString(),
-            };
-
-            // no more than 6 tasks
-            if (pinnedTasks.length === 6) {
-               showToast('Max 6 Pinned Tasks Allowed', 'error');
-               return;
-            }
-
-            // if already in the list
-            if (
-               pinnedTasks.findIndex(
-                  task => task.taskId === newPinnedTask.taskId
-               ) >= 0
-            ) {
-               showToast('Task Already Pinned', 'warning');
-               return;
-            }
-
-            const res = await axiosSecure.post('/pinned-tasks', newPinnedTask);
-
-            if (res.data.status === 'success') {
-               dispatch(setPinnedTasks(res.data.pinnedTasks));
-               showToast('Task Pinned', 'success');
-            }
-         } catch (error) {
-            showToast('Something went wrong. Try again', 'error');
-         }
-      },
-      [dispatch, axiosSecure]
-   );
-
-   const unpinTask = useCallback(
-      async (pinnedTaskId, pinnedTasks) => {
-         try {
-            const newPinnedTasks = pinnedTasks.filter(
-               task => task._id !== pinnedTaskId
-            );
-
-            dispatch(setPinnedTasks(newPinnedTasks));
-
-            const res = await axiosSecure.delete(
-               `/pinned-tasks/${pinnedTaskId}?email=${profileData.email}`
-            );
-
-            if (res.data.status === 'success') {
-               showToast('Task Unpinned', 'success');
-            }
-         } catch (error) {
-            showToast('Something went wrong. Try again', 'error');
-         }
-      },
-      [dispatch, axiosSecure, profileData]
-   );
-
    const deleteTask = useCallback(
-      async (_id, tasks, pinnedTasks) => {
-         const pinnedTask = pinnedTasks.find(task => task.taskId === _id);
-
-         if (pinnedTask?._id) {
-            unpinTask(pinnedTask._id, pinnedTasks);
-         }
-
+      async (_id, tasks) => {
          const remainingTasks = tasks.filter(task => task._id !== _id);
          dispatch(setTotalTasks(remainingTasks));
 
@@ -190,7 +137,7 @@ const useTaskDatabaseMethods = () => {
             showToast('Task Deleted', 'success');
          }
       },
-      [dispatch, profileData, axiosSecure, unpinTask]
+      [dispatch, profileData, axiosSecure]
    );
 
    return {
@@ -199,8 +146,7 @@ const useTaskDatabaseMethods = () => {
       deleteTask,
       createTask,
       editTask,
-      pinTask,
-      unpinTask,
+      getTasks,
    };
 };
 

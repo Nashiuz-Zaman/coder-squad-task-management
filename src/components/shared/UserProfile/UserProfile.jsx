@@ -9,7 +9,6 @@ import { Icon } from '@iconify/react';
 
 // next
 import Link from 'next/link';
-import Image from 'next/image';
 
 // hooks
 import useClickOutside from '@/hooks/useClickOutside';
@@ -37,13 +36,12 @@ const UserProfile = ({ profileData, logoutFunction, modifyClasses = '' }) => {
    const optionsClasses =
       'flex font-semibold text-neutral-500 items-center gap-2 hover:text-primary transition-all duration-200';
 
-   // declare name and photo variables
-   let name, image;
+   // declare name
+   let name;
 
    if (profileData) {
-      // assign name and photo variables
+      // assign name
       name = profileData?.name;
-      image = profileData?.imageSource;
 
       return (
          <div
@@ -55,25 +53,12 @@ const UserProfile = ({ profileData, logoutFunction, modifyClasses = '' }) => {
                className='w-full h-full aspect-square border border-neutral-300  rounded-full overflow-hidden'
             >
                {/* if no photo provided show default silhoutte photo */}
-               {!image && (
-                  <div className='w-full h-full p-2 flex items-center justify-center'>
-                     <Icon
-                        className='w-full h-full text-neutral-300'
-                        icon='mingcute:user-3-fill'
-                     />
-                  </div>
-               )}
-
-               {/* if there is photo show this part */}
-               {image !== null && (
-                  <Image
-                     width={400}
-                     height={400}
-                     className='w-full h-full object-cover'
-                     src={image}
-                     alt='user image'
+               <div className='w-full h-full p-2 flex items-center justify-center'>
+                  <Icon
+                     className='w-full h-full text-neutral-300'
+                     icon='mingcute:user-3-fill'
                   />
-               )}
+               </div>
             </div>
 
             {/* positioned div for userpanel menu */}

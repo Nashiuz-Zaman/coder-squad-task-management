@@ -17,6 +17,7 @@ import useDashboardMobileNav from './useDashboardMobileNav';
 import useTaskDatabaseMethods from './useTaskDatabaseMethods';
 import useFormVisiblity from './useFormVisiblity';
 import useRedux from './useRedux';
+import usePagination from './usePagination';
 
 // export hooks
 export {
@@ -36,4 +37,5 @@ export {
    useTaskDatabaseMethods,
    useFormVisiblity,
    useRedux,
+   usePagination,
 };

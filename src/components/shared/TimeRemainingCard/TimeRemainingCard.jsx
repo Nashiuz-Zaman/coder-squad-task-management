@@ -26,7 +26,7 @@ const TimeRemainingCard = ({
    }, [deadline]);
 
    return (
-      <div className={`flex items-center gap-1 ${modifyClasses}`}>
+      <div className={`flex items-center gap-1 ${modifyClasses}`} title='Time Remaining'>
          <Icon icon='ph:clock-fill' className='block' />
          {/* time remaining part */}
          <p style={{ fontWeight: 'inherit' }}>

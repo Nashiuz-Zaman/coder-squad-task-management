@@ -5,14 +5,15 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
    totalTasks: [],
-   statusSpecificTasks: null,
-   curCategory: 'todo',
-   curPage: 1,
-   pageCount: 1,
    taskToEdit: null,
    taskDetails: null,
    isLoading: true,
    showTaskDetailsPanel: false,
+   taskCreateErrors: [],
+   taskEditErrors: [],
+   refetch: false,
+   initialFetch: true,
+   categoryChanged: false,
 };
 
 const taskSlice = createSlice({
@@ -30,20 +31,26 @@ const taskSlice = createSlice({
             task => task._id === payload
          );
       },
-      setStatusSpecificTasks: (state, { payload }) => {
-         state.statusSpecificTasks = payload;
-      },
       setShowTaskDetailsPanel: (state, { payload }) => {
          state.showTaskDetailsPanel = payload;
       },
       setIsLoading: (state, { payload }) => {
          state.isLoading = payload;
       },
-      setCurCategory: (state, { payload }) => {
-         state.curCategory = payload;
+      setTaskCreateErrors: (state, { payload }) => {
+         state.taskCreateErrors = payload;
       },
-      setCurPage: (state, { payload }) => {
-         state.curPage = payload;
+      setTaskEditErrors: (state, { payload }) => {
+         state.taskEditErrors = payload;
+      },
+      setRefetch: (state, { payload }) => {
+         state.refetch = payload;
+      },
+      setInitialFetch: (state, { payload }) => {
+         state.initialFetch = payload;
+      },
+      setCategoryChanged: (state, { payload }) => {
+         state.categoryChanged = payload;
       },
    },
 });
@@ -53,11 +60,13 @@ const { actions, reducer } = taskSlice;
 export default reducer;
 export const {
    setTotalTasks,
-   setStatusSpecificTasks,
    setIsLoading,
    setTaskToEdit,
    setTaskDetails,
    setShowTaskDetailsPanel,
-   setCurCategory,
-   setCurPage,
+   setTaskCreateErrors,
+   setTaskEditErrors,
+   setRefetch,
+   setInitialFetch,
+   setCategoryChanged,
 } = actions;

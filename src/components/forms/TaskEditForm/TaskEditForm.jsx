@@ -9,22 +9,24 @@ import {
    useTaskDatabaseMethods,
    useEscapeClose,
    useFormVisiblity,
-   useRedux
+   useRedux,
 } from '@/hooks';
 
 // redux
 import { setTaskToEdit } from '@/lib/redux/features/task/taskSlice';
+import { setTaskEditErrors } from '@/lib/redux/features/task/taskSlice';
 
 // data
 import { priorityOptions } from '@/uiData/formsUiData';
 
 // utils
 import { getDateInYYYYMMDD } from '@/utils/dateTimeMethods';
+import { validateTaskData } from '@/utils/validateTaskData';
 
 const TaskEditForm = () => {
    const { dispatch, useSelector } = useRedux();
    const { taskEditFormOpen } = useSelector(store => store.form);
-   const { taskToEdit, totalTasks } = useSelector(store => store.task);
+   const { taskToEdit, taskEditErrors } = useSelector(store => store.task);
    const { closeTaskEditForm } = useFormVisiblity();
    const { editTask } = useTaskDatabaseMethods();
 
@@ -34,6 +36,8 @@ const TaskEditForm = () => {
       dispatch(setTaskToEdit(null));
    };
 
+   console.log(taskToEdit);
+
    // add support clicking outside and escape key press
    useEscapeClose(handleCloseForm);
 
@@ -41,12 +45,14 @@ const TaskEditForm = () => {
    const handleEditTask = e => {
       e.preventDefault();
 
+      dispatch(setTaskEditErrors([]));
+
       // take all the necessary values
       const form = e.target;
       const title = form.title.value.trim();
       const description = form.description.value.trim();
-      const deadline = form.deadline.value.trim();
-      const priorityLevel = parseInt(form.priority.value.trim());
+      const deadline = form.deadline.value && form.deadline.value;
+      const priorityLevel = parseInt(form.priority.value);
 
       // Task data summarized
       const editedTaskData = {
@@ -56,7 +62,14 @@ const TaskEditForm = () => {
          priorityLevel,
       };
 
-      editTask(taskToEdit._id, editedTaskData, totalTasks);
+      const foundErrors = validateTaskData(editedTaskData);
+
+      if (foundErrors.length > 0) {
+         dispatch(setTaskEditErrors(foundErrors));
+         return;
+      }
+
+      editTask(taskToEdit._id, editedTaskData);
       handleCloseForm();
       form.reset();
    };
@@ -70,7 +83,7 @@ const TaskEditForm = () => {
          <CloseBtn onClickFunction={handleCloseForm} modifyClasses='!text-xl' />
 
          {/* form starts here */}
-         <form onSubmit={handleEditTask} className='block space-y-3'>
+         <form noValidate onSubmit={handleEditTask} className='block space-y-3'>
             {/* title */}
             <InputField2
                defaultValueData={taskToEdit?.title}
@@ -105,6 +118,22 @@ const TaskEditForm = () => {
                options={priorityOptions}
                defaultValueData={taskToEdit?.priorityLevel}
             />
+
+            {/* show errors here */}
+            {taskEditErrors?.length > 0 && (
+               <div className='space-y-1 mt-3 md:mt-4'>
+                  {taskEditErrors.map(error => {
+                     return (
+                        <p
+                           key={error}
+                           className='text-sm text-center font-semibold text-red-600'
+                        >
+                           * {error}
+                        </p>
+                     );
+                  })}
+               </div>
+            )}
 
             {/* submit button */}
             <ButtonBtn text='Save' modifyClasses='!ml-auto !mt-5' />

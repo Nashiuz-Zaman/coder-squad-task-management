@@ -94,6 +94,7 @@ const useLogin = () => {
    };
 
    const handleLogout = async (manual = true) => {
+      router.push('/')
       const logoutRes = await axiosPublic.patch('/logout', {
          email: localStorage.getItem('email'),
       });

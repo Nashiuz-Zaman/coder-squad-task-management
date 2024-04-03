@@ -23,6 +23,7 @@ import InputField2 from '@/components/shared/InputField2/InputField2';
 import TextareaField from '@/components/shared/TextareaField/TextareaField';
 import PriorityCard from '@/components/shared/PriorityCard/PriorityCard';
 import TimeRemainingCard from '@/components/shared/TimeRemainingCard/TimeRemainingCard';
+import MenuPanel from '@/components/shared/MenuPanel/MenuPanel';
 
 // export components
 export {
@@ -42,10 +43,11 @@ export {
    InputField1,
    PasswordField,
    AuthComponent,
-   UserProfile,   
+   UserProfile,
    SelectField,
    InputField2,
    TextareaField,
    TimeRemainingCard,
    PriorityCard,
+   MenuPanel,
 };

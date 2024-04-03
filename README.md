@@ -1,6 +1,8 @@
 # Task Manager
 
 Coder Squad Assignment for building a MERN application for Task Management
+
+# Live
 Live link: https://taskmanager-codersquad.vercel.app
 
 # Frameworks/Libraries

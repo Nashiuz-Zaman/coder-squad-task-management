@@ -26,9 +26,7 @@ import { validateTaskData } from '@/utils/validateTaskData';
 const TaskEditForm = () => {
    const { dispatch, useSelector } = useRedux();
    const { taskEditFormOpen } = useSelector(store => store.form);
-   const { taskToEdit, totalTasks, taskEditErrors } = useSelector(
-      store => store.task
-   );
+   const { taskToEdit, taskEditErrors } = useSelector(store => store.task);
    const { closeTaskEditForm } = useFormVisiblity();
    const { editTask } = useTaskDatabaseMethods();
 
@@ -37,6 +35,8 @@ const TaskEditForm = () => {
       closeTaskEditForm();
       dispatch(setTaskToEdit(null));
    };
+
+   console.log(taskToEdit);
 
    // add support clicking outside and escape key press
    useEscapeClose(handleCloseForm);
@@ -52,7 +52,7 @@ const TaskEditForm = () => {
       const title = form.title.value.trim();
       const description = form.description.value.trim();
       const deadline = form.deadline.value && form.deadline.value;
-      const priorityLevel = parseInt(form.priority.value.trim());
+      const priorityLevel = parseInt(form.priority.value);
 
       // Task data summarized
       const editedTaskData = {
@@ -69,7 +69,7 @@ const TaskEditForm = () => {
          return;
       }
 
-      editTask(taskToEdit._id, editedTaskData, totalTasks);
+      editTask(taskToEdit._id, editedTaskData);
       handleCloseForm();
       form.reset();
    };

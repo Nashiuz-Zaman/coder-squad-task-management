@@ -14,9 +14,8 @@ import {
    MoveToCompletedBtn,
    MoveToTodoBtn,
    ViewDetailsBtn,
-   DotsMenuBtn,
 } from '@/components/buttons';
-import { MenuPanel, PriorityCard } from '@/components/shared';
+import { PriorityCard, TimeRemainingCard } from '@/components/shared';
 
 // hook
 import { useFormVisiblity, useTaskDatabaseMethods, useRedux } from '@/hooks';
@@ -32,9 +31,8 @@ import { getDayMonthNameYearStr } from '@/utils/dateTimeMethods';
 
 const Task = ({ taskData }) => {
    // necessary hooks and data extraction
-   const { dispatch, useSelector } = useRedux();
-   const { totalTasks } = useSelector(store => store.task);
-   const { deleteTask, updateTaskStatus } = useTaskDatabaseMethods();
+   const { dispatch } = useRedux();
+   const { deleteTask, editTask } = useTaskDatabaseMethods();
 
    const { openTaskEditForm, openTaskDetailsPanel } = useFormVisiblity();
    const { _id, title, statusLevel, deadline, priorityLevel } = taskData;
@@ -42,93 +40,88 @@ const Task = ({ taskData }) => {
 
    return (
       <div
-         className={`bg-white border border-neutral-200 shadow-sm rounded-lg p-3 pb-4 text-lg flex flex-col animate-fadeIn`}
+         className={`bg-white border border-neutral-200 shadow-sm rounded-lg p-3 pb-4 text-lg grid grid-cols-2 animate-fadeIn`}
       >
-         {/* priority and dot button */}
-         <div className='flex items-center justify-between mb-3 md:mb-4'>
-            <PriorityCard priorityLevel={priorityLevel} />
-
-            {/* three dotted menu button */}
-            <DotsMenuBtn
-               modifyClasses='ml-auto mr-2'
-               renderChildren={(show, setShow) => {
-                  return (
-                     <MenuPanel
-                        modifyClasses='!text-sm sm:!text-base 2md:!text-lg xl:!text-xl w-max !space-y-2 2md:!space-y-4'
-                        show={show}
-                        setShow={setShow}
-                     >
-                        <ViewDetailsBtn
-                           onClickFunction={() => {
-                              dispatch(setTaskDetails(taskData?._id));
-                              openTaskDetailsPanel();
-                              setShow(false);
-                           }}
-                           text='View Details'
-                        />
-                        <EditBtn
-                           onClickFunction={() => {
-                              setShow(false);
-                              dispatch(setTaskToEdit(taskData));
-                              openTaskEditForm();
-                           }}
-                           text='Edit Task'
-                        />
-
-                        {statusLevel !== 0 && (
-                           <MoveToTodoBtn
-                              onClickFunction={() => {
-                                 updateTaskStatus(_id, 0, totalTasks);
-                              }}
-                              text='Mark as Todo'
-                           />
-                        )}
-
-                        {statusLevel !== 1 && (
-                           <MoveToOngoingBtn
-                              onClickFunction={() => {
-                                 updateTaskStatus(_id, 1, totalTasks);
-                              }}
-                              text='Mark as Ongoing'
-                           />
-                        )}
-
-                        {statusLevel !== 2 && (
-                           <MoveToCompletedBtn
-                              onClickFunction={() => {
-                                 updateTaskStatus(_id, 2, totalTasks);
-                              }}
-                              text='Mark as Completed'
-                           />
-                        )}
-
-                        {/* delete button */}
-                        <DeleteBtn
-                           onClickFunction={() => {
-                              deleteTask(_id, totalTasks);
-                           }}
-                           text='Delete'
-                        />
-                     </MenuPanel>
-                  );
-               }}
+         <div>
+            {/* priority card */}
+            <PriorityCard
+               priorityLevel={priorityLevel}
+               modifyClasses='mb-3 md:mb-4'
             />
+
+            {/* title */}
+            <h4
+               title='Task Title'
+               className='font-bold text-base md:text-lg mb-2 !leading-none'
+            >
+               {title}
+            </h4>
+
+            {/* deadline */}
+            <div title='Deadline' className='flex w-max items-center gap-1'>
+               <Icon
+                  className='text-neutral-500 text-xl'
+                  icon='ph:calendar-fill'
+               />
+               <span className='text-neutral-500 font-semibold text-sm !leading-none'>
+                  {deadlineStr}
+               </span>
+            </div>
          </div>
 
-         {/* title */}
-         <h4 className='font-bold text-base md:text-lg mb-2 !leading-none'>
-            {title}
-         </h4>
+         <div className='h-full flex flex-col'>
+            <div className='flex items-start justify-end gap-2'>
+               <ViewDetailsBtn
+                  onClickFunction={() => {
+                     dispatch(setTaskDetails(taskData?._id));
+                     openTaskDetailsPanel();
+                  }}
+               />
+               <EditBtn
+                  onClickFunction={() => {
+                     dispatch(setTaskToEdit(taskData));
+                     openTaskEditForm();
+                  }}
+               />
 
-         {/* deadline */}
-         <div title='Deadline' className='flex w-max items-center gap-1'>
-            <Icon
-               className='text-neutral-500 text-xl'
-               icon='ph:calendar-fill'
+               {statusLevel !== 0 && (
+                  <MoveToTodoBtn
+                     onClickFunction={() => {
+                        editTask(_id, { statusLevel: 0 });
+                     }}
+                  />
+               )}
+
+               {statusLevel !== 1 && (
+                  <MoveToOngoingBtn
+                     onClickFunction={() => {
+                        editTask(_id, { statusLevel: 1 });
+                     }}
+                  />
+               )}
+
+               {statusLevel !== 2 && (
+                  <MoveToCompletedBtn
+                     onClickFunction={() => {
+                        editTask(_id, { statusLevel: 2 });
+                     }}
+                  />
+               )}
+
+               {/* delete button */}
+               <DeleteBtn
+                  onClickFunction={() => {
+                     deleteTask(_id);
+                  }}
+               />
+            </div>
+
+            {/* time remaining */}
+            <TimeRemainingCard
+               text=''
+               modifyClasses='text-sm font-medium md:text-base 3xl:text-lg  text-neutral-500 w-max ml-auto mt-auto'
+               deadline={deadline}
             />
-            <span className='text-neutral-500 font-semibold text-sm !leading-none'>
-               {deadlineStr}
-            </span>
          </div>
       </div>
    );

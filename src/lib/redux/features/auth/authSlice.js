@@ -4,26 +4,18 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-  
-   userAlreadyRegistered: false,
    profileData: null,
-   userLoading: false,
+   userLoading: true,
    loginErrors: [],
    registrationErrors: [],
-   passwordResetErrors: [],
    loginLoading: false,
    registrationLoading: false,
-   passwordResetLoading: false,
 };
 
 const authSlice = createSlice({
    name: 'auth',
    initialState,
    reducers: {
-     
-      setUserAlreadyRegistered: (state, { payload }) => {
-         state.userAlreadyRegistered = payload;
-      },
       setProfileData: (state, { payload }) => {
          state.profileData = payload;
       },
@@ -42,26 +34,16 @@ const authSlice = createSlice({
       setRegistrationLoading: (state, { payload }) => {
          state.registrationLoading = payload;
       },
-      setPasswordResetErrors:(state, { payload }) => {
-         state.passwordResetErrors = payload;
-      },
-      setPasswordResetLoading: (state, { payload }) => {
-         state.passwordResetLoading = payload;
-      },
    },
 });
 
 const { reducer, actions } = authSlice;
 export default reducer;
 export const {
-  
-   setUserAlreadyRegistered,
    setProfileData,
    setUserLoading,
    setLoginErrors,
    setRegistrationErrors,
    setLoginLoading,
    setRegistrationLoading,
-   setPasswordResetLoading,
-   setPasswordResetErrors
 } = actions;

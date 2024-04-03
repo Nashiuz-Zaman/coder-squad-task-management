@@ -11,6 +11,9 @@ const initialState = {
    showTaskDetailsPanel: false,
    taskCreateErrors: [],
    taskEditErrors: [],
+   refetch: false,
+   initialFetch: true,
+   categoryChanged: false,
 };
 
 const taskSlice = createSlice({
@@ -40,6 +43,15 @@ const taskSlice = createSlice({
       setTaskEditErrors: (state, { payload }) => {
          state.taskEditErrors = payload;
       },
+      setRefetch: (state, { payload }) => {
+         state.refetch = payload;
+      },
+      setInitialFetch: (state, { payload }) => {
+         state.initialFetch = payload;
+      },
+      setCategoryChanged: (state, { payload }) => {
+         state.categoryChanged = payload;
+      },
    },
 });
 
@@ -54,4 +66,7 @@ export const {
    setShowTaskDetailsPanel,
    setTaskCreateErrors,
    setTaskEditErrors,
+   setRefetch,
+   setInitialFetch,
+   setCategoryChanged,
 } = actions;

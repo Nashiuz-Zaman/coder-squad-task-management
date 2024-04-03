@@ -18,12 +18,12 @@ const StatusSpecificTasks = ({ tasksData }) => {
    const statusText = statusOptions[status]?.text;
 
    return (
-      <div className={`min-h-[59vh] lg:min-h-[50vh] flex flex-col p-4 bg-neutral-100`}>
+      <div className={`min-h-[59vh] lg:min-h-[50vh] flex flex-col p-4 bg-neutral-50`}>
          {/* tasks container */}
 
          {/* if tasks available */}
          {tasks?.length > 0 && (
-            <ul className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3'>
+            <ul className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'>
                {tasks.map(task => {
                   return (
                      <li key={task._id}>

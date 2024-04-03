@@ -24,6 +24,11 @@ const DashboardNavContent = ({ modifyClasses = '' }) => {
 
    const primaryOptions = [
       {
+         text: 'Home',
+         icon: <Icon icon='icon-park-solid:home' />,
+         url: '/',
+      },
+      {
          text: 'Manage Tasks',
          icon: <Icon icon='fluent:tasks-app-20-filled' />,
          url: `/manage-tasks?id=${profileData?._id}`,
@@ -33,7 +38,7 @@ const DashboardNavContent = ({ modifyClasses = '' }) => {
    return (
       <div className={`space-y-3 md:space-y-6 ${modifyClasses}`}>
          {/* dashboard pages */}
-         <div className='pb-6 border-b border-neutral-200'>
+         <div>
             <DashboardNavHeading text='Menu' modifyClasses='mb-2 md:mb-6' />
 
             {/* the navigation menu */}
